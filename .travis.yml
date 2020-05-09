@@ -15,8 +15,19 @@ before_script:
 
 script:
   - docker --version # print the version for logging
+  - cd frontend
   - docker build -t udagram-microservices-frontend .
   - docker tag udagram-microservices-frontend sachinudacity/udagram-microservices-frontend:latest
+
+  - cd ..
+  - cd feed
+  - docker build -t udagram-microservices-feed .
+  - docker tag udagram-microservices-feed sachinudacity/udagram-microservices-feed:latest
+
+  - cd ..
+  - cd users
+  - docker build -t udagram-microservices-users .
+  - docker tag udagram-microservices-users sachinudacity/udagram-microservices-users:latest
 
 # Tasks to perform after the process is successful. Formatting the Docker username and password as below enables you to programmatically log in without having the password exposed in logs.
 after_success:

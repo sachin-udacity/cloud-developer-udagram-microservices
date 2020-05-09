@@ -33,3 +33,5 @@ script:
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push sachinudacity/udagram-microservices-frontend
+  - docker push sachinudacity/udagram-microservices-feed
+  - docker push sachinudacity/udagram-microservices-users

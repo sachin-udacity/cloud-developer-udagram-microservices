@@ -29,9 +29,15 @@ script:
   - docker build -t udagram-microservices-users .
   - docker tag udagram-microservices-users sachinudacity/udagram-microservices-users:latest
 
+  - cd ..
+  - cd reverseproxy
+  - docker build -t udagram-reverse-proxy .
+  - docker tag udagram-reverse-proxy sachinudacity/udagram-reverse-proxy:latest
+
 # Tasks to perform after the process is successful. Formatting the Docker username and password as below enables you to programmatically log in without having the password exposed in logs.
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push sachinudacity/udagram-microservices-frontend
   - docker push sachinudacity/udagram-microservices-feed
   - docker push sachinudacity/udagram-microservices-users
+  - docker push sachinudacity/udagram-reverse-proxy

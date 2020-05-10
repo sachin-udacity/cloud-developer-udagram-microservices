@@ -17,6 +17,7 @@ spec:
       containers:
       - name: users-svc
         image: sachinudacity/udagram-microservices-users
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         resources:

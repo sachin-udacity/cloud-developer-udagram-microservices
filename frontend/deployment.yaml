@@ -17,6 +17,7 @@ spec:
       containers:
       - name: frontend
         image: sachinudacity/udagram-microservices-frontend
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         resources:

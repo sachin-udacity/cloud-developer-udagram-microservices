@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-svc
+  labels:
+    app: users-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users-svc
+  template:
+    metadata:
+      labels:
+        app: users-svc
+    spec:
+      containers:
+      - name: users-svc
+        image: sachinudacity/udagram-microservices-users
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 768Mi        

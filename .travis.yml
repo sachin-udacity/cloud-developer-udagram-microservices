@@ -41,3 +41,4 @@ after_success:
   - docker push sachinudacity/udagram-microservices-feed
   - docker push sachinudacity/udagram-microservices-users
   - docker push sachinudacity/udagram-reverse-proxy
+  
